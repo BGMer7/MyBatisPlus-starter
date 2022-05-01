@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gatsby.mybatisstarter.mapper.EmployeeMapper">
+    <select id="queryAll" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+    </select>
+
+    <insert id="insert" parameterType="com.gatsby.mybatisstarter.entity.Employee">
+        insert into employees
+        values (#{empno}, #{firstname}, #{lastname}, #{sex}, #{birthdate}, #{deptno}, #{hiredate}, #{salary}, #{title})
+    </insert>
+
+    <select id="queryByName" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+        where firstname = #{firstname}
+          and lastname = #{lastname}
+    </select>
+
+    <select id="queryBySex" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+        where sex = #{sex}
+    </select>
+
+    <select id="queryByDept" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+        where deptno = #{deptno}
+    </select>
+
+    <select id="hiredAfterAsc" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+        where #{hiredate} > employees.hiredate
+        order by hiredate asc
+    </select>
+
+    <select id="hiredAfterDesc" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+        where #{hiredate} > employees.hiredate
+        order by hiredate desc
+    </select>
+
+    <select id="hiredBeforeAsc" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+        where employees.hiredate > #{hiredate}
+        order by hiredate asc
+    </select>
+
+    <select id="hiredBeforeDesc" resultType="com.gatsby.mybatisstarter.entity.Employee">
+        select *
+        from employees
+        where employees.hiredate > #{hiredate}
+        order by hiredate desc
+    </select>
+
+</mapper>
