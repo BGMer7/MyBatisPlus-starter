@@ -1,4 +1,4 @@
-package com.learning.mybatis.entity;
+package com.gatsby.mybatisplus.entity;
 
 import lombok.Data;
 

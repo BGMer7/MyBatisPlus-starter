@@ -1,6 +1,6 @@
-package com.learning.mybatis.mapper;
+package com.gatsby.mybatisplus.mapper;
 
-import com.learning.mybatis.entity.User;
+import com.gatsby.mybatisplus.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
