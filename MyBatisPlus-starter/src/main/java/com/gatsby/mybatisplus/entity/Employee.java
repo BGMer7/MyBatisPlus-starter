@@ -1,5 +1,6 @@
 package com.gatsby.mybatisplus.entity;
 
+
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -25,4 +26,8 @@ public class Employee {
     private String hiredate;
     private String title;
     private String salary;
+
+    public String toString() {
+        return firstname + " " + lastname;
+    }
 }

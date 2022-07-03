@@ -26,7 +26,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.1.tmp</version>
+            <version>3.5.1</version>
         </dependency>
 
         <dependency>
@@ -66,7 +66,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10 </version>
+            <version>1.2.8</version>
         </dependency>
 
         <!-- 动态数据源 -->
@@ -93,17 +93,17 @@
         <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
         <resources>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>src/main/resources</directory>
                 <includes>
-                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
                     <include>**/*.xml</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>src/main/java</directory>
                 <includes>
-                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
                     <include>**/*.xml</include>
                 </includes>
                 <filtering>false</filtering>

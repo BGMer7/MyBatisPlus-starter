@@ -1,13 +1,13 @@
 package com.gatsby.mybatisplus.service.impl;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.gatsby.mybatisplus.entity.Employee;
 import com.gatsby.mybatisplus.mapper.EmployeeMapper;
 import com.gatsby.mybatisplus.service.EmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,18 +16,22 @@ import java.util.List;
  * @description --
  */
 
-
-@DS("java")
+@Slf4j
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
+    @Qualifier("employeeMapper")
     private EmployeeMapper employeeMapper;
 
     @Override
+    public String hello() {
+        return "hello";
+    }
+
+    @Override
     public List<Employee> queryAllEmployees() {
-        System.out.println("service");
         List<Employee> result = employeeMapper.queryAllEmployees();
-        System.out.println("The size of result is: "+ result.size());
+        log.info("The size of all employee query result is: "+ result.size());
         return result;
     }
 }

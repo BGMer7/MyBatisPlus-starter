@@ -3,8 +3,8 @@
 <mapper namespace="com.gatsby.mybatisplus.mapper.EmployeeMapper">
 
     <!-- queryAllEmployees-->
-    <select id="queryAllEmployees" parameterType="com.gatsby.mybatisplus.entity.Employee">
-        SELECT * FROM `Employees`;
+    <select id="queryAllEmployees" resultType="com.gatsby.mybatisplus.entity.Employee">
+        SELECT * FROM `Employees`
     </select>
 
 </mapper>

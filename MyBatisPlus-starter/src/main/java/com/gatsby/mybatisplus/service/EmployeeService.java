@@ -1,7 +1,6 @@
 package com.gatsby.mybatisplus.service;
 
 import com.gatsby.mybatisplus.entity.Employee;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -12,5 +11,6 @@ import java.util.List;
  */
 
 public interface EmployeeService {
+    String hello();
     List<Employee> queryAllEmployees();
 }

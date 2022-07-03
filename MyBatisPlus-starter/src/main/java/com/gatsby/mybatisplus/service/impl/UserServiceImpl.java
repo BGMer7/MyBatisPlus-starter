@@ -5,6 +5,7 @@ import com.gatsby.mybatisplus.entity.User;
 import com.gatsby.mybatisplus.mapper.UserMapper;
 import com.gatsby.mybatisplus.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,8 @@ import java.util.List;
 @DS("mybatisplus")
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired(required = false)
+    @Autowired
+    @Qualifier("userMapper")
     private UserMapper userMapper;
 
     @Override

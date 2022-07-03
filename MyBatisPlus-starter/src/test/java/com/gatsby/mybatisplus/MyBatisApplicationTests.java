@@ -6,6 +6,8 @@ import com.gatsby.mybatisplus.entity.User;
 import com.gatsby.mybatisplus.mapper.EmployeeMapper;
 import com.gatsby.mybatisplus.mapper.UserMapper;
 import com.gatsby.mybatisplus.service.EmployeeService;
+import com.gatsby.mybatisplus.service.UserService;
+import com.gatsby.mybatisplus.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -16,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = MyBatisPlusApplication.class)
 @MapperScan("com.gatsby.mybatisplus.mapper")
 class MyBatisApplicationTests {
     @Autowired(required = false)
@@ -33,7 +35,12 @@ class MyBatisApplicationTests {
     @DS("mybatisplus")
     public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
-        List<User> userList = userMapper.selectList(null);
+        // List<User> userList = userMapper.selectList(null);
+        // for (User user : userList) {
+        //     System.out.println(user);
+        // }
+        UserService userService = new UserServiceImpl();
+        List<User> userList = userService.queryAllUser();
         for (User user : userList) {
             System.out.println(user);
         }
@@ -41,12 +48,13 @@ class MyBatisApplicationTests {
 
     @Test
     public void testQueryAllEmployee(){
-        System.out.println(("----- selectAll method test ------"));
-        List<Employee> employeeList = employeeMapper.queryAllEmployees();
-        System.out.println(employeeList.size());
+        System.out.println("jjj");
 
-        // employeeList = employeeService.queryAllEmployees();
-        // System.out.println(employeeList.size());
+        System.out.println(("----- selectAll method test"));
+        List<Employee> employeeList;
+
+        employeeList = employeeService.queryAllEmployees();
+        System.out.println(employeeList.size());
     }
 
     @Test
